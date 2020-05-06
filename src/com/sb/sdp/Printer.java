@@ -7,7 +7,7 @@ public class Printer extends CommonsUtil{
 	//private static  Printer INSTANCE=new Printer();//EAger Instantiation (Wrong Practice)
 	
 	//Object will create at class loading time,or it will load the object when there is a need 
-	private static Printer INSTANCE;//Lazy instantiation 
+	private static volatile Printer INSTANCE=null;//Lazy instantiation 
 	
 	private static final long serialVersionUID=143L;
 	
@@ -17,12 +17,20 @@ public class Printer extends CommonsUtil{
 	
 	//private constructor to stop creating object other clas
 	private Printer()
-	{
-		if(flag==true)
-			throw new IllegalArgumentException ("object already created::Not possible to creat another object");
-	flag=true;
-		System.out.println("Printer::0-param constructor");
+	{ 
+		 // Preventing attack by Reflection APIs
+        if (INSTANCE != null) {
+            throw new RuntimeException("Cannot instantiate single object using constructor."
+            		+ " Use its #getInstance() method");
+            
+//            if(flag==true)
+//        		throw new IllegalArgumentException ("object already created::Not possible to creat another object");
+//        			flag=true;
+//        		System.out.println("Printer::0-param constructor");
+        }
 	}
+		
+	
 	
 	//static factory method
 	//class level synchronization (NOT GOOD)
