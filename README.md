@@ -20,6 +20,7 @@ eg.:-1->Cloning process:--so through cloning we can also create copy of objects
 
 so we should resolve this issue by preventing thses to create new objects 
 
+
 use case:
 ----------
 where should we use singleton java class :-
@@ -27,7 +28,10 @@ where should we use singleton java class :-
 1:-if a class is having no state 
 2:-if a class is having sharebale test across all the multiple classes
 3:-if a class is having ReadOnly state
-But here we can not achive 100% singleton behaviour so we can not devlope 100% perfect singleton class in java  
+
+
 conclusion:
 ===================
-    using traditional approach we can devlope 98% 
+But here we can not achive 100% singleton behaviour so we can not devlope 100% perfect singleton class in java  
+
+    using traditional approach we can devlope for 98% 
